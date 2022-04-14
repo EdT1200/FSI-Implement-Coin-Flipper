@@ -1,7 +1,31 @@
 // TODO: Declare any global variables we need
+var img = document.getElementById("penny-img");
+var flip = document.getElementById("flip")
+var roll = document.getElementById("roll")
+let numberHeads = 0
+let numberTails = 0
+let percentHeads = 0
+let percentTails = 0
+let totalFlip = 0
+let flipText = document.querySelector(".message-container");
+let scoreboardTails = document.querySelector("#tails")
+let scorboardHeads = document.querySelector("#heads")
+let scorboardPerTails = document.querySelector("#tails-percent")
+let scorboardPerHeads = document.querySelector("#heads-percent")
 
+flip.addEventListener("click", function() {
+    let result = Math.floor(Math.random() * 2) + 1
+    console.log(result)
+    if(result == 1) {
+        numberHeads++                                            //flipped heads
+       scoreboardHeads.textContent = numberHeads
 
-document.addEventListener('DOMContentLoaded', function () {
+    }   
+    else {                                                      //flipped tails
+          numberTails++
+          scorboardHeads.innerHTML = numberTails
+    }      
+
     // This is just a sanity check to make sure your JavaScript script is getting loaded
     // You can remove it once you see it in your browser console in the developer tools
     console.log('Hi')
@@ -23,5 +47,3 @@ document.addEventListener('DOMContentLoaded', function () {
     // Clear Button Click Handler
         // TODO: Reset global variables to 0
         // TODO: Update the scoreboard (same logic as in flip button click handler)
-
-})
