@@ -8,7 +8,7 @@ let percentHeads = 0
 let percentTails = 0
 let totalFlip = 0
 let flipText = document.querySelector(".message-container");
-let scoreboardTails = document.querySelector("#tails")
+let scorboardTails = document.querySelector("#tails")
 let scorboardHeads = document.querySelector("#heads")
 let scorboardPerTails = document.querySelector("#tails-percent")
 let scorboardPerHeads = document.querySelector("#heads-percent")
@@ -18,13 +18,38 @@ flip.addEventListener("click", function() {
     console.log(result)
     if(result == 1) {
         numberHeads++                                            //flipped heads
-       scoreboardHeads.textContent = numberHeads
+       scorboardHeads.textContent = numberHeads
+       img.src = "assets/images/penny-heads.jpg"
+       flipText.textContent = "flip heads"
+       percentHeads = Math.round(numberHeads / (numberHeads + numberTails) * 100);
+       scorboardPerHeads.textContent = percentHeads
+       percentTails = Math.round(numberTails / (numberHeads + numberTails) * 100);
+          scorboardPerTails.textContent = percentTails
+       
 
     }   
     else {                                                      //flipped tails
           numberTails++
-          scorboardHeads.innerHTML = numberTails
-    }      
+          scorboardTails.innerHTML = numberTails
+          img.src = "assets/images/penny-tails.jpg"
+          flipText.textContent = "flip tails"
+          percentTails = Math.round(numberTails / (numberHeads + numberTails) * 100);
+          scorboardPerTails.textContent = percentTails
+          percentHeads = Math.round(numberHeads / (numberHeads + numberTails) * 100);
+          scorboardPerHeads.textContent = percentHeads
+
+    }
+    percentTails = Math.round(numberTails / (numberHeads + numberTails) * 100);
+    scorboardPerTails.textContent = percentTails + "%"
+    percentHeads = Math.round(numberHeads / (numberHeads + numberTails) * 100);
+    scorboardPerHeads.textContent = percentHeads + "%"
+
+})
+
+roll.addEventListener("click", function() {
+   roll.forEach(roll => roll.value = ""); 
+});
+
 
     // This is just a sanity check to make sure your JavaScript script is getting loaded
     // You can remove it once you see it in your browser console in the developer tools
