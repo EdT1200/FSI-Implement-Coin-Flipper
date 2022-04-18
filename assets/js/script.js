@@ -47,7 +47,21 @@ flip.addEventListener("click", function() {
 })
 
 roll.addEventListener("click", function() {
-   roll.forEach(roll => roll.value = ""); 
+    percentTails = Math.round(numberTails / (numberHeads + numberTails) * 0);
+    scorboardPerTails.textContent = percentTails
+    percentHeads = Math.round(numberHeads / (numberHeads + numberTails) * 0);
+    scorboardPerHeads.textContent = percentHeads 
+    percentTails = Math.round(numberTails / (numberHeads + numberTails) * 0);
+          scorboardPerTails.textContent = percentTails
+          percentHeads = Math.round(numberHeads / (numberHeads + numberTails) * 0);
+          scorboardPerHeads.textContent = percentHeads
+          img.src = "assets/images/penny-heads.jpg"
+          scorboardHeads.textContent = 0
+          scorboardTails.textContent = 0
+
+        
+
+        
 });
 
 
